@@ -102,5 +102,5 @@ theme: hexo-theme-Chic-master
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
   type: 'git'
-  repo: https://github.com/caoheike/caoheike.github.io.git
+  repo: git@github.com:caoheike/caoheike.github.io.git
   branch: main
