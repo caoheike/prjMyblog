@@ -1,3 +1,10 @@
+---
+title: 使用一键脚本搭建shadowsocks服务
+date: 2024-06-03 23:58:03
+tags:
+---
+### 使用一键脚本搭建shadowsocks服务
+
 TG直链和系统代理
 
 ```
@@ -81,4 +88,7 @@ Shadowsocks-libev 开启、停止、重启和查看状态命令：
 ```
 /etc/init.d/shadowsocks-libev start | stop | restart | status
 ```
+
+
+
 
