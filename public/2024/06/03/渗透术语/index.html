@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="John Doe">
+
+
+
+
+
+<title>渗透术语 | By:weizai Blog</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+<meta name="generator" content="Hexo 7.2.0"></head>
+
+<body>
+    <script>
+        // this function is used to check current theme before page loaded.
+        (() => {
+            const currentTheme = window.localStorage && window.localStorage.getItem('theme') || '';
+            const isDark = currentTheme === 'dark';
+            const pagebody = document.getElementsByTagName('body')[0]
+            if (isDark) {
+                pagebody.classList.add('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Dark"
+            } else {
+                pagebody.classList.remove('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Light"
+            }
+        })();
+    </script>
+
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">By:weizai&#39;s Blog</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">By:weizai&#39;s Blog</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+            <div class="main">
+                <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    var tocbot_timer;
+    var DEPTH_MAX = 6; // 为 6 时展开所有
+    var tocbot_default_config = {
+        tocSelector: '.tocbot-list',
+        contentSelector: '.post-content',
+        headingSelector: 'h1, h2, h3, h4, h5',
+        orderedList: false,
+        scrollSmooth: true,
+        onClick: extend_click,
+    };
+
+    function extend_click() {
+        clearTimeout(tocbot_timer);
+        tocbot_timer = setTimeout(function() {
+            tocbot.refresh(obj_merge(tocbot_default_config, {
+                hasInnerContainers: true
+            }));
+        }, 420); // 这个值是由 tocbot 源码里定义的 scrollSmoothDuration 得来的
+    }
+
+    document.ready(function() {
+        tocbot.init(obj_merge(tocbot_default_config, {
+            collapseDepth: 1
+        }));
+    });
+
+    function expand_toc() {
+        var b = document.querySelector('.tocbot-toc-expand');
+        var expanded = b.getAttribute('data-expanded');
+        expanded ? b.removeAttribute('data-expanded') : b.setAttribute('data-expanded', true);
+        tocbot.refresh(obj_merge(tocbot_default_config, {
+            collapseDepth: expanded ? 1 : DEPTH_MAX
+        }));
+        b.innerText = expanded ? 'Expand all' : 'Collapse all';
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+    function obj_merge(target, source) {
+        for (var item in source) {
+            if (source.hasOwnProperty(item)) {
+                target[item] = source[item];
+            }
+        }
+        return target;
+    }
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">渗透术语</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">John Doe</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">June 3, 2024&nbsp;&nbsp;23:58:03</a>
+                        </span>
+                    
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <h3 id="渗透术语"><a href="#渗透术语" class="headerlink" title="渗透术语"></a>渗透术语</h3><p>渗透 exp是什么</p>
+<p>EXP：全称 ‘ Exploit ‘，中文 ‘ 利用 ‘，指利用系统漏洞进行攻击的动作。漏洞利用，某个漏洞存在EXP，意思就是该漏洞存在公开的利用方式(比如一个脚本)。</p>
+<p>POC和EXP的区别：POC是做测试时的用来证明漏洞存在的的测试作用，而EXP属于恶意利用漏洞，最大本质区别是POC通常无害，EXP通常有害。<br>PAYLOAD<br>Payload：中文 ‘ 有效载荷 ‘，指成功exploit之后，真正在目标系统执行的代码或指令。通常在传输数据时，为了使数据传输更可靠，要把原始数据分批传输，并且在每一批数据的头和尾都加上一定的辅助信息，比如数据量的大小、校验位等，这样就相当于给已经分批的原始数据加一些外套，这些外套起标示作用，使得原始数据不易丢失，一批数据加上“外套”就形成了传输通道的基本传输单元，叫做数据帧或数据包，而其中的原始数据就是payload。payload是包含在你用于一次漏洞利用(EXP)中的ShellCode中的主要功能代码。通常我们叫他漏洞利用载荷(管道)，我们在漏洞利用成功之后会，会以权限如何进行转移，可以用http协议，也可以用tcp协议等。转接权限用到的通道就是payload。Payload有很多种，它可以是Shellcode，也可以直接是一段系统命令。同一个Payload可以用于多个漏洞，但每个漏洞都有其自己的EXP，也就是说不存在通用的EXP。</p>
+<p>PAYLOAD补充拓展<br>在Metasploit Framework 6大模块中有一个Payload模块，在该模块下有Single、Stager、Stages这三种类型，Single是一个all-in-one的Payload，不依赖其他的文件，所以它的体积会比较大，Stager主要用于当目标计算机的内存有限时，可以先传输一个较小的Stager用于建立连接，Stages指利用Stager建立的连接下载后续的Payload。Stager和Stages都有多种类型，适用于不同场景。</p>
+<p>SHELLCODE<br>Shellcode：简单翻译 ‘ shell代码 ‘，是Payload的一种，由于其建立正向&#x2F;反向shell而得名。一般指的是漏洞载荷，漏洞代码。Shellcode与Shellshcok不是一个，Shellshock特指14年发现的Shellshock漏洞。</p>
+<p>Metasploit<br>Metasploit就是一个安全漏洞检测工具。它的全称叫做The Metasploit Framework，简称MSF。</p>
+<p>Metasploit Framework 6大模块<br>Auxiliaries (辅助模块)<br>该模块不会直接在测试者和目标主机之间建立访问，它们只负责执行扫描、嗅探、指纹识别等相关功能以辅助渗透测试。</p>
+<p>Exploit (漏洞利用模块)<br>漏洞利用是指由渗透测试者利用一个系统、应用或者服务中的安全漏洞进行的攻击行为。流行的渗透攻击技术包括缓冲区溢出、Web应用程序攻击，以及利用配置错误等，其中包含攻击者或测试人员针对系统中的漏洞而设计的各种POC验证程序，用于破坏系统安全性的攻击代码，每个漏洞都有相应的攻击代码。</p>
+<p>Payload (攻击载荷模块)<br>攻击载荷是我们期望目标系统在被渗透攻击之后完成实际攻击功能的代码，成功渗透目标后，用于在目标系统上运行任意命令或者执行特定代码，在Metasploit框架中可以自由地选择、传送和植入。攻击载荷也可能是简单地在目标操作系统上执行一些命令，如添加用户账号等。</p>
+<p>Post (后期渗透模块)<br>该模块主要用于在取得目标系统远程控制权后，进行一系列的后渗透攻击动作，如获取敏感信息、实施跳板攻击等。</p>
+<p>Encoders (编码工具模块)<br>该模块在渗透测试中负责免杀，以防止被杀毒软件、防火墙、IDS及类似的安全软件检测出来。</p>
+<p>Nops（空指令模块)<br>空指令不会对程序运行状态造成任何实质影响的空操作或者无关操作指令。</p>
+<p>BackDoor（后门）<br>这是一种形象的比喻，入侵者在利用某些方法成功的控制了目标主机后，可以在对方的系统中植入特定的程序，或者是修改某些设置，用于访问、查看或者控制这台主机。</p>
+<p>这些改动表面上是很难被察觉的，就好象是入侵者偷偷的配了一把主人房间的钥匙，或者在不起眼处修了一条按到，可以方便自身随意进出。通常大多数木马程序都可以被入侵者用于创建后门。</p>
+<p>Webshell（网页后门）<br>Webshell就是以asp、php、jsp或者cgi等网页文件形式存在的一种命令执行环境，也可以将其称做是一种网页后门，可以上传下载文件，查看数据库，执行任意程序命令等。</p>
+<p>木马<br>就是那些表面上伪装成了正常的程序，但是当这些程序运行时，就会获取系统的整个控制权限。</p>
+<p>病毒<br>病毒是一种恶意软件，它可以在执行时自我复制，通过修改其他计算机程序或插入自己的代码，使其受到感染。</p>
+<p>病毒和木马的区别<br>1、病毒会传染，木马不会；</p>
+<p>2、病毒入侵电脑你会有感觉，比如文件打不开、无法开机，而木马不会，因为它要开展后续“工作”，所以不会一开始就败露；</p>
+<p>3、病毒主要以“破坏著称，而木马通常是用来盗取用户信息的。</p>
+<p>反弹<br>反弹一般是讲权限反弹回到自己手中，在webshell上操作，把权限移交给其他服务器上面，这个过程就叫反弹。（权限的转交）</p>
+<p>回显<br>回显指的是将用户输入的内容原样返回给用户的操作。在计算机领域，回显通常用于指示用户输入的内容已经被成功接收和处理。例如，当用户在命令行界面中输入命令时，系统会执行该命令并将结果回显到屏幕上，以便用户确认命令是否正确执行。回显也可以用于测试网络连接或信息传输过程中的数据是否正确传输。</p>
+<p>跳板<br>跳板就像一个桥梁，假如A与C之间隔着一个河，而B则作为一个跳板（桥梁）来帮助A的人到达C。</p>
+<p>黑盒测试<br>黑盒测试又称为功能测试，主要检测软件的每一个功能是否能够正常使用。在测试过程中，将程序看成不能打开的黑盒子，不考虑程序内部结构和特性的基础上通过程序接口进行测试，检查程序功能是否按照设计需求以及说明书的规定能够正常打开使用。通常情况没有源代码，只有目标且对目标情况未知。</p>
+<p>白盒测试<br>白盒测试也称为结构测试，主要用于检测软件编码过程中的错误。程序员的编程经验、对编程软件的掌握程度、工作状态等因素都会影响到编程质量，导致代码错误。通常知道大概目标情况，知道源码或开设的部分服务。</p>
+<p>灰盒测试<br>灰盒测试，是介于白盒测试与黑盒测试之间的一种测试，灰盒测试多用于集成测试阶段，不仅关注输出、输入的正确性，同时也关注程序内部的情况。灰盒测试不像白盒那样详细、完整，但又比黑盒测试更关注程序的内部逻辑，常常是通过一些表征性的现象、事件、标志来判断内部的运行状态</p>
+<p>暴力破解<br>简称“爆破”。通常是黑客利用编译好的脚本或工具对目标的账号密码利用自动生成或通过社会工程搜集到的字典进行自由组合排序后一一尝试，直至破解账号密码的过程。</p>
+<p>社会工程学<br>简称“社工”。就是利用你所能利用到的一切资源去了解目标的各种信息。（人性的弱点）</p>
+<p>撞库<br>撞库是黑客通过收集互联网已泄露的用户和密码信息，生成对应的字典表，尝试批量登陆其他网站后，得到一系列可以登录的用户。  很多用户在不同网站使用的是相同的帐号密码，因此黑客可以通过获取用户在A网站的账户从而尝试登录B网址，这就可以理解为撞库攻击。</p>
+<p>ATT&amp;CK<br>红蓝对抗中，将所有攻击进行名词专有化，方便书写报告时，更加统一一些专有名词。</p>
+<p>0 day<br>刚被发现，未被公开的，未及时打补丁，威胁极大的漏洞。</p>
+<p>CVE（Common Vulnerabilities &amp; Exposures）<br>是一种公开的漏洞标识符，用于唯一地标识漏洞和安全缺陷。它由MITRE公司负责维护和管理，主要用于在计算机安全领域中记录和跟踪各种漏洞和安全缺陷。</p>
+<p>CAN<br>CAN和CVE的唯一区别是前者代表了候选条目，还未经CVE编辑委员会认可，而后者则是经过认可的条目。然后，两种类型的条目都对公众可见，条目的编号不会随着认可而改变—仅仅是“CAN”前缀替换成了“CVE”。</p>
+<p>BUGTRAQ<br>一个完整的对计算机安全漏洞（它们是什么，如何利用它们，以及如何修补它们）的公告及详细论述进行适度披露的邮件列表</p>
+<p>CNCVE<br>中国（CN）的 CVE ，是CNCERT&#x2F;CC（国家计算机网络应急处理协调中心）为漏洞进行编号的一个自己的标准。CNCVE不但包含漏洞的描述予以统一定义，还将包括漏洞的补丁、验证等措施，更方便、有用。</p>
+<p>CNVD（工信）<br>国家信息安全漏洞共享平台。是由国家计算机网络应急技术处理协调中心（简称CNCERT）联合国内重要信息系统单位、基础电信运营商、网络安全厂商、软件厂商和互联网企业建立的信息安全漏洞信息共享知识库。</p>
+<p>CNNVD（网安）<br>中国国家信息安全漏洞库。是中国信息安全测评中心为切实履行漏洞分析和风险评估的职能，负责建设运维的国家信息安全漏洞库，为我国信息安全保障提供基础服务</p>
+<p>CVSS(Common Vulnerability Scoring System)<br>通用漏洞评分系统，行业公开标准，用来评测漏洞的严重程度，0-10分值越高越严重。</p>
+<p>VUL（Vulnerability）<br>漏洞</p>
+<p>CPE（Common Platform Enumeration）<br>以标准化方式为软件应用程序、操作系统及硬件命名的方法</p>
+<pre><code>
+</code></pre>
+
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>John Doe</span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>Permalink:</span>
+                        <span><a href="https://caoheike.github.io/2024/06/03/%E6%B8%97%E9%80%8F%E6%9C%AF%E8%AF%AD/">https://caoheike.github.io/2024/06/03/%E6%B8%97%E9%80%8F%E6%9C%AF%E8%AF%AD/</a></span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>License:</span>
+                        <span>Copyright (c) 2019 <a target="_blank" rel="noopener" href="http://creativecommons.org/licenses/by-nc/4.0/">CC-BY-NC-4.0</a> LICENSE</span>
+                    </p>
+                
+                
+                     <p class="copyright-item">
+                         <span>Slogan:</span>
+                         <span>Do you believe in <strong>DESTINY</strong>?</span>
+                     </p>
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+                <a class="prev" rel="prev" href="/2024/06/03/blog%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/">blog搭建教程</a>
+            
+            
+            <a class="next" rel="next" href="/2024/06/03/netbot%E4%B9%8Bbot%E4%BD%BF%E7%94%A8/">netbot之bot使用</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+            </div>
+            <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© John Doe | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+</body>
+
+</html>
