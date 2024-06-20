@@ -13,7 +13,7 @@
 
 
 
-<title>mybatis | By:weizai Blog</title>
+<title>技术栈 | By:weizai Blog</title>
 
 
 
@@ -196,7 +196,7 @@
     
     <article class="post-wrap">
         <header class="post-header">
-            <h1 class="post-title">mybatis</h1>
+            <h1 class="post-title">技术栈</h1>
             
                 <div class="post-meta">
                     
@@ -212,7 +212,7 @@
                         <span class="post-category">
                     Category:
                             
-                                <a href="/categories/blog1/">blog1</a>
+                                <a href="/categories/%E5%BC%80%E5%8F%91/">开发</a>
                             
                         </span>
                     
@@ -221,15 +221,27 @@
         </header>
 
         <div class="post-content">
-            <h3 id="mybatis进阶"><a href="#mybatis进阶" class="headerlink" title="mybatis进阶"></a>mybatis进阶</h3><p>1、首先实体类中需要在实体类中增加 list字段,在主类中增加</p>
-<p>ps: 一个老师有多个学生，老师的类为A 学生的类为B ，那么在A中增加B的list</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">private List&lt;FinAuditDetal&gt; finAuditDetalList;</span><br></pre></td></tr></table></figure>
-
-<p>association 与collection 的区别</p>
-<p>association： 用于 <em>一对一关系的配置</em></p>
-<p>collection ：用于 一对多关系的配置</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;resultMap id=&quot;BathDetailResultMap&quot; type=&quot;com.bijiangzb.loan.finance.infra.gateway.impl.db.model.FinAuditDO&quot;&gt;</span><br><span class="line">    &lt;id column=&quot;BILL_ID&quot; jdbcType=&quot;VARCHAR&quot; property=&quot;billId&quot;/&gt;</span><br><span class="line">    &lt;collection property=&quot;finAuditDetalList&quot;</span><br><span class="line">                ofType=&quot;com.bijiangzb.loan.finance.infra.gateway.impl.db.model.FinAuditDetalDO&quot;&gt;</span><br><span class="line">        &lt;id column=&quot;FAD_AMOUNT&quot; jdbcType=&quot;DECIMAL&quot; property=&quot;fadAmount&quot;/&gt;</span><br><span class="line">    &lt;/collection&gt;</span><br><span class="line">&lt;/resultMap&gt;</span><br></pre></td></tr></table></figure>
-
+            <h3 id="技术栈"><a href="#技术栈" class="headerlink" title="技术栈"></a>技术栈</h3><p>前端技术栈：</p>
+<p>react vant ant</p>
+<p>相关资源网站：</p>
+<p><a target="_blank" rel="noopener" href="https://react-vant.3lang.dev/components/collapse#%E5%9F%BA%E7%A1%80%E7%94%A8%E6%B3%95">https://react-vant.3lang.dev/components/collapse#%E5%9F%BA%E7%A1%80%E7%94%A8%E6%B3%95</a></p>
+<p><a target="_blank" rel="noopener" href="https://ant-design.antgroup.com/index-cn">https://ant-design.antgroup.com/index-cn</a></p>
+<p><a target="_blank" rel="noopener" href="https://procomponents.ant.design/">https://procomponents.ant.design/</a></p>
+<p>这个是H5的 <a target="_blank" rel="noopener" href="https://mobile.ant.design/zh">https://mobile.ant.design/zh</a></p>
+<p>开发相关</p>
+<p>npm install -g rimraf rimraf node_modules yarn cache clean</p>
+<p>vim &#x2F;etc&#x2F;sysconfig&#x2F;iptables</p>
+<p>systemctl restart iptables</p>
+<p>mkdir folder tar -xvf file.tar</p>
+<p>mvn clean install -e -U</p>
+<p>npm install -g rimraf rimraf node_modules yarn cache clean</p>
+<p>编辑变量 vim ~&#x2F;.bashrc</p>
+<p>source ~&#x2F;.bashrc 生效</p>
+<p>echo 变量名 查看变量</p>
+<p>前端框架 </p>
+<p>心藏须弥: <a target="_blank" rel="noopener" href="https://ant-design.antgroup.com/index-cn">https://ant-design.antgroup.com/index-cn</a></p>
+<p>心藏须弥: <a target="_blank" rel="noopener" href="https://procomponents.ant.design/">https://procomponents.ant.design/</a></p>
+<p>心藏须弥: 这个是H5的 <a target="_blank" rel="noopener" href="https://mobile.ant.design/zh">https://mobile.ant.design/zh</a></p>
 
         </div>
 
@@ -244,7 +256,7 @@
                 
                     <p class="copyright-item">
                         <span>Permalink:</span>
-                        <span><a href="https://caoheike.github.io/2021/08/20/mybatis%E5%A6%82%E4%BD%95%E6%98%A0%E5%B0%84%E4%B8%80%E5%AF%B9%E5%A4%9A/">https://caoheike.github.io/2021/08/20/mybatis%E5%A6%82%E4%BD%95%E6%98%A0%E5%B0%84%E4%B8%80%E5%AF%B9%E5%A4%9A/</a></span>
+                        <span><a href="https://caoheike.github.io/2021/08/20/%E6%8A%80%E6%9C%AF%E6%A0%88/">https://caoheike.github.io/2021/08/20/%E6%8A%80%E6%9C%AF%E6%A0%88/</a></span>
                     </p>
                 
                 
@@ -268,7 +280,7 @@
                 <span class="tag">
                     
                     
-                        <a href="/tags/mybatis/"># mybatis</a>
+                        <a href="/tags/%E5%BC%80%E5%8F%91/"># 开发</a>
                     
                         
                 </span>
@@ -281,10 +293,8 @@
         </section>
         <section class="post-nav">
             
-                <a class="prev" rel="prev" href="/2024/06/03/idea%E5%BF%AB%E6%8D%B7%E9%94%AE/">idea快捷键</a>
+                <a class="prev" rel="prev" href="/2021/08/20/hack%E8%B7%AF%E7%94%B1%E6%B5%8B%E8%AF%95/">hack路由测试</a>
             
-            
-            <a class="next" rel="next" href="/2021/08/20/%E6%A8%A1%E7%89%88/">模版</a>
             
         </section>
 
