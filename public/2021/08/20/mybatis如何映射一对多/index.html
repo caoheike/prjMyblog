@@ -221,7 +221,16 @@
         </header>
 
         <div class="post-content">
-            <h3 id="1-mybatis-Test"><a href="#1-mybatis-Test" class="headerlink" title="1. mybatis Test"></a>1. mybatis Test</h3>
+            <h3 id="mybatis进阶"><a href="#mybatis进阶" class="headerlink" title="mybatis进阶"></a>mybatis进阶</h3><p>1、首先实体类中需要在实体类中增加 list字段,在主类中增加</p>
+<p>ps: 一个老师有多个学生，老师的类为A 学生的类为B ，那么在A中增加B的list</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">private List&lt;FinAuditDetal&gt; finAuditDetalList;</span><br></pre></td></tr></table></figure>
+
+<p>association 与collection 的区别</p>
+<p>association： 用于 <em>一对一关系的配置</em></p>
+<p>collection ：用于 一对多关系的配置</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;resultMap id=&quot;BathDetailResultMap&quot; type=&quot;com.bijiangzb.loan.finance.infra.gateway.impl.db.model.FinAuditDO&quot;&gt;</span><br><span class="line">    &lt;id column=&quot;BILL_ID&quot; jdbcType=&quot;VARCHAR&quot; property=&quot;billId&quot;/&gt;</span><br><span class="line">    &lt;collection property=&quot;finAuditDetalList&quot;</span><br><span class="line">                ofType=&quot;com.bijiangzb.loan.finance.infra.gateway.impl.db.model.FinAuditDetalDO&quot;&gt;</span><br><span class="line">        &lt;id column=&quot;FAD_AMOUNT&quot; jdbcType=&quot;DECIMAL&quot; property=&quot;fadAmount&quot;/&gt;</span><br><span class="line">    &lt;/collection&gt;</span><br><span class="line">&lt;/resultMap&gt;</span><br></pre></td></tr></table></figure>
+
+
         </div>
 
         
@@ -272,8 +281,10 @@
         </section>
         <section class="post-nav">
             
-                <a class="prev" rel="prev" href="/2024/06/03/%E6%B8%97%E9%80%8F%E6%9C%AF%E8%AF%AD/">渗透术语</a>
+                <a class="prev" rel="prev" href="/2021/08/20/linux%E6%B5%8B%E9%80%9F/">linux 测速</a>
             
+            
+            <a class="next" rel="next" href="/2021/08/20/%E6%8A%80%E6%9C%AF%E6%A0%88/">技术栈</a>
             
         </section>
 

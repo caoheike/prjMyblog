@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="John Doe">
+
+
+
+
+
+<title>hack DDOS放大类型 | By:weizai Blog</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+<meta name="generator" content="Hexo 7.2.0"></head>
+
+<body>
+    <script>
+        // this function is used to check current theme before page loaded.
+        (() => {
+            const currentTheme = window.localStorage && window.localStorage.getItem('theme') || '';
+            const isDark = currentTheme === 'dark';
+            const pagebody = document.getElementsByTagName('body')[0]
+            if (isDark) {
+                pagebody.classList.add('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Dark"
+            } else {
+                pagebody.classList.remove('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Light"
+            }
+        })();
+    </script>
+
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">By:weizai&#39;s Blog</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">By:weizai&#39;s Blog</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+            <div class="main">
+                <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    var tocbot_timer;
+    var DEPTH_MAX = 6; // 为 6 时展开所有
+    var tocbot_default_config = {
+        tocSelector: '.tocbot-list',
+        contentSelector: '.post-content',
+        headingSelector: 'h1, h2, h3, h4, h5',
+        orderedList: false,
+        scrollSmooth: true,
+        onClick: extend_click,
+    };
+
+    function extend_click() {
+        clearTimeout(tocbot_timer);
+        tocbot_timer = setTimeout(function() {
+            tocbot.refresh(obj_merge(tocbot_default_config, {
+                hasInnerContainers: true
+            }));
+        }, 420); // 这个值是由 tocbot 源码里定义的 scrollSmoothDuration 得来的
+    }
+
+    document.ready(function() {
+        tocbot.init(obj_merge(tocbot_default_config, {
+            collapseDepth: 1
+        }));
+    });
+
+    function expand_toc() {
+        var b = document.querySelector('.tocbot-toc-expand');
+        var expanded = b.getAttribute('data-expanded');
+        expanded ? b.removeAttribute('data-expanded') : b.setAttribute('data-expanded', true);
+        tocbot.refresh(obj_merge(tocbot_default_config, {
+            collapseDepth: expanded ? 1 : DEPTH_MAX
+        }));
+        b.innerText = expanded ? 'Expand all' : 'Collapse all';
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+    function obj_merge(target, source) {
+        for (var item in source) {
+            if (source.hasOwnProperty(item)) {
+                target[item] = source[item];
+            }
+        }
+        return target;
+    }
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">hack DDOS放大类型</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">John Doe</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">August 20, 2021&nbsp;&nbsp;18:07:21</a>
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                    Category:
+                            
+                                <a href="/categories/Hack/">Hack</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <h3 id="hack-DDOS放大类型"><a href="#hack-DDOS放大类型" class="headerlink" title="hack DDOS放大类型"></a>hack DDOS放大类型</h3><p>ddos放大笔记 ssdp：<a target="_blank" rel="noopener" href="https://www.aeys.org/2298.html">https://www.aeys.org/2298.html</a> 脚本：<a target="_blank" rel="noopener" href="https://github.com/Nolovenodie/ssdp-zmap/blob/main/upnp_1900.pkt">https://github.com/Nolovenodie/ssdp-zmap/blob/main/upnp_1900.pkt</a></p>
+<p>QOTD-Reflect-Flood：QOTD 反射攻击CharGEN-Reflect-Flood：CharGEN 反射攻击DNS-Reflect-Flood：DNS 反射攻击TFTP-Reflect-Flood：TFTP 反射攻击Portmap-Reflect-Flood：Portmap 反射攻击NTP-Reflect-Flood：NTP 反射攻击NetBIOS-Reflect-Flood：NetBIOS 反射攻击SNMPv2-Reflect-Flood：SNMPv2 反射攻击CLDAP-Reflect-Flood：CLDAP 反射攻击Ripv1-Reflect-Flood：Ripv1 反射攻击OpenVPN-Reflect-Flood：OpenVPN 反射攻击SSDP-Reflect-Flood：SSDP 反射攻击NetAssistant-Reflect-Flood：NetAssistant 反射攻击WSDiscovery-Reflect-Flood：WSDiscovery 反射攻击Kad-Reflect-Flood：Kad 反射攻击mDNS-Reflect-Flood：mDNS 反射攻击10001-Reflect-Flood：10001 反射攻击Memcached-Reflect-Flood：Memcached 反射攻击QNP-Reflect-Flood：QNP 反射攻击DVR-Reflect-Flood：DVR 反射攻击CoAP-Reflect-Flood：CoAP 反射攻击ADDP-Reflect-Flood：ADDP 反射攻击Tcp-Syn：TCP SYN Flood 攻击Tcp-Fin：TCP FIN Flood 攻击Tcp-Ack：TCP ACK Flood 攻击Tcp-Rst：TCP RST Flood 攻击Tcp-Pushack：TCP PSH+ACK Flood 攻击Tcp-Synack：TCP SYN+ACK Flood 攻击Udp-None：UDP 攻击Udp-Ssh：UDP SSH 协议攻击Udp-Dns：UDP DNS 协议攻击Udp-Http：UDP HTTP 协议攻击Udp-Https：UDP HTTPS 协议攻击Udp-Ntp：UDP NTP 协议攻击Udp-Ldap：UDP LDAP 协议攻击Udp-Ssdp：UDP SSDP 协议攻击Udp-Memcached：Memcache UDP 反射放大攻击Tcp-Other：TCP 其他类型攻击Icmp：ICMP Flood 攻击Igmp：IGMP Flood 攻击Ipv6：IPv6 攻击</p>
+
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>John Doe</span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>Permalink:</span>
+                        <span><a href="https://caoheike.github.io/2021/08/20/hack%20DDOS%E6%94%BE%E5%A4%A7%E7%B1%BB%E5%9E%8B/">https://caoheike.github.io/2021/08/20/hack%20DDOS%E6%94%BE%E5%A4%A7%E7%B1%BB%E5%9E%8B/</a></span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>License:</span>
+                        <span>Copyright (c) 2019 <a target="_blank" rel="noopener" href="http://creativecommons.org/licenses/by-nc/4.0/">CC-BY-NC-4.0</a> LICENSE</span>
+                    </p>
+                
+                
+                     <p class="copyright-item">
+                         <span>Slogan:</span>
+                         <span>Do you believe in <strong>DESTINY</strong>?</span>
+                     </p>
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/Hack/"># Hack</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+                <a class="prev" rel="prev" href="/2021/08/20/Hack-%E3%80%90%E6%B5%8B%E9%87%8F%E5%A2%99%E3%80%91/">Hack-【测量墙】</a>
+            
+            
+            <a class="next" rel="next" href="/2021/08/20/hack%E5%85%A5%E9%97%A8%E8%B0%83%E6%95%99/">hack入门调教</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+            </div>
+            <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© John Doe | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+</body>
+
+</html>

