@@ -1,0 +1,1 @@
+node ccpost.js  http://156.236.70.64:8080/verificatApi/get  proxy.txt 100 data.txt 50

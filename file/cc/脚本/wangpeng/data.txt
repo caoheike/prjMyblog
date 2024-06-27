@@ -1,0 +1,6 @@
+{
+    "method": "POST",
+    "url": "http://111.111.111.11:8080/verificatApi/get",
+    "headers": { "content-type": "application/json" },
+    "data": { "id": "1" }
+}
