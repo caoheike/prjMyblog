@@ -1,0 +1,4 @@
+#!/bin/bash
+for n in $(seq $1); do
+node spTLS.js $2 $3 50 50 proxy.txt
+done

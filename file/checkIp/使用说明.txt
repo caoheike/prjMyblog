@@ -1,0 +1,14 @@
+proxy 代理池验证程序 
+用来验证cc http代理池存活的
+用法：./check azenv http chizi.txt proxy.txt 20 90000
+记得给上chmod 777 check   权限 777
+运行之前请先运行 ulimit -n 999999解除系统限制
+
+
+🥰proxy 代理池验证程序 源代码Go
+学习参考 看看有什么bug自行修改或者验证方式方法
+用法：go build -o check check.go
+先进行编译
+编译好只会
+运行指令：./check
+案例：./check azenv http chizi.txt proxy.txt 20 90000
