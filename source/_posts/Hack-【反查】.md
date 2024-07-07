@@ -14,6 +14,7 @@ categories: Hack
 | 站长全球ping         | https://www.itdog.cn/ping/wap.ccw9188.com      |
 | 站长全球ping         | https://www.itdog.cn/ping/beijixing.tb8000.com |
 | 查询服务商           | https://www.ipip.net/ip.html                   |
-| 优先ping             | https://www.itdog.cn/http/                     |
+| 优先ping             | https://www.itdog.cn/http/ https://www.itdog.cn/ping/https://11.pjoc.cc https://www.itdog.cn/http/?host=https://11.pjoc.cc                     |
 | 查询是否静国外ip     | https://tcp.ping.pe/43.240.158.227:80          |
-|                      | https://site.ip138.com/aliyun88.com/domain.htm |
+| 子域名返查           | https://site.ip138.com/aliyun88.com/domain.htm |
+| checkHOST            | https://check-host.net/check-http|
