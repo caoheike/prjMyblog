@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="John Doe">
+
+
+
+
+
+<title>可伪造服务器渠道列表 | By:weizai Blog</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+<meta name="generator" content="Hexo 7.2.0"></head>
+
+<body>
+    <script>
+        // this function is used to check current theme before page loaded.
+        (() => {
+            const currentTheme = window.localStorage && window.localStorage.getItem('theme') || '';
+            const isDark = currentTheme === 'dark';
+            const pagebody = document.getElementsByTagName('body')[0]
+            if (isDark) {
+                pagebody.classList.add('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Dark"
+            } else {
+                pagebody.classList.remove('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Light"
+            }
+        })();
+    </script>
+
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">By:weizai&#39;s Blog</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">By:weizai&#39;s Blog</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+            <div class="main">
+                <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    var tocbot_timer;
+    var DEPTH_MAX = 6; // 为 6 时展开所有
+    var tocbot_default_config = {
+        tocSelector: '.tocbot-list',
+        contentSelector: '.post-content',
+        headingSelector: 'h1, h2, h3, h4, h5',
+        orderedList: false,
+        scrollSmooth: true,
+        onClick: extend_click,
+    };
+
+    function extend_click() {
+        clearTimeout(tocbot_timer);
+        tocbot_timer = setTimeout(function() {
+            tocbot.refresh(obj_merge(tocbot_default_config, {
+                hasInnerContainers: true
+            }));
+        }, 420); // 这个值是由 tocbot 源码里定义的 scrollSmoothDuration 得来的
+    }
+
+    document.ready(function() {
+        tocbot.init(obj_merge(tocbot_default_config, {
+            collapseDepth: 1
+        }));
+    });
+
+    function expand_toc() {
+        var b = document.querySelector('.tocbot-toc-expand');
+        var expanded = b.getAttribute('data-expanded');
+        expanded ? b.removeAttribute('data-expanded') : b.setAttribute('data-expanded', true);
+        tocbot.refresh(obj_merge(tocbot_default_config, {
+            collapseDepth: expanded ? 1 : DEPTH_MAX
+        }));
+        b.innerText = expanded ? 'Expand all' : 'Collapse all';
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+    function obj_merge(target, source) {
+        for (var item in source) {
+            if (source.hasOwnProperty(item)) {
+                target[item] = source[item];
+            }
+        }
+        return target;
+    }
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">可伪造服务器渠道列表</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">John Doe</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">June 3, 2024&nbsp;&nbsp;23:58:03</a>
+                        </span>
+                    
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <h3 id="可伪造服务器渠道列表"><a href="#可伪造服务器渠道列表" class="headerlink" title="可伪造服务器渠道列表"></a>可伪造服务器渠道列表</h3><p><a target="_blank" rel="noopener" href="https://bp-servers.com/billing/index.php?rp=/store/vds-iphm-server">https://bp-servers.com/billing/index.php?rp=/store/vds-iphm-server</a> 自己找的 关键字：IP Spoofing Allowed </p>
+<p><a target="_blank" rel="noopener" href="https://www.yecaoyun.com/">https://www.yecaoyun.com</a>  cc老板推荐</p>
+<p><a target="_blank" rel="noopener" href="https://dedioutlet.com/secure/store/instant-servers">https://dedioutlet.com/secure/store/instant-servers</a></p>
+<p>打开 IP欺骗 的网站列表 ➖➖➖➖➖➖➖➖➖➖➖➖</p>
+<ol>
+<li><p>BKHOST: <a target="_blank" rel="noopener" href="https://bkhost.vn/">https://bkhost.vn/</a></p>
+</li>
+<li><p>Rusonyx: <a target="_blank" rel="noopener" href="https://www.rusonyx.ru/">https://www.rusonyx.ru/</a></p>
+</li>
+<li><p>Shinjiru Malaysia: <a target="_blank" rel="noopener" href="https://www.shinjiru.com.my/">https://www.shinjiru.com.my/</a></p>
+</li>
+<li><p>1Byte: <a target="_blank" rel="noopener" href="https://1byte.com/">https://1byte.com/</a></p>
+</li>
+<li><p>EServer: <a target="_blank" rel="noopener" href="https://www.eserver.ru/">https://www.eserver.ru/</a></p>
+</li>
+<li><p>NetEngi: <a target="_blank" rel="noopener" href="https://netengi.com/">https://netengi.com/</a></p>
+</li>
+<li><p>HN Cloud: <a target="_blank" rel="noopener" href="https://www.hncloud.com/">https://www.hncloud.com/</a></p>
+</li>
+<li><p>Altun Satis: <a target="_blank" rel="noopener" href="https://www.altunsatis.com/">https://www.altunsatis.com/</a></p>
+</li>
+<li><p>Link Data Center: <a target="_blank" rel="noopener" href="https://www.linkdatacenter.net/">https://www.linkdatacenter.net/</a></p>
+</li>
+<li><p>Moack: <a target="_blank" rel="noopener" href="https://www.moack.co.kr/">https://www.moack.co.kr/</a></p>
+</li>
+<li><p>HostGier: <a target="_blank" rel="noopener" href="https://hostgier.pl/">https://hostgier.pl/</a></p>
+</li>
+<li><p>Hazi: <a target="_blank" rel="noopener" href="https://hazi.ro/">https://hazi.ro/</a></p>
+</li>
+<li><p>NovaNet: <a target="_blank" rel="noopener" href="https://novanet.ro/">https://novanet.ro/</a></p>
+</li>
+<li><p>VNPT: <a target="_blank" rel="noopener" href="https://vnpt.com.vn/">https://vnpt.com.vn/</a></p>
+</li>
+<li><p>BKNS: <a target="_blank" rel="noopener" href="https://www.bkns.vn/">https://www.bkns.vn/</a></p>
+</li>
+<li><p>NewMedia Express: <a target="_blank" rel="noopener" href="https://www.newmediaexpress.com/">https://www.newmediaexpress.com/</a></p>
+</li>
+<li><p>DataSoft: <a target="_blank" rel="noopener" href="https://datasoft.ws/">https://datasoft.ws/</a></p>
+</li>
+<li><p>Ilskiy: <a target="_blank" rel="noopener" href="https://ilskiy.di-di.ru/">https://ilskiy.di-di.ru/</a></p>
+</li>
+<li><p>NS1: <a target="_blank" rel="noopener" href="https://www.ns1.bg/">https://www.ns1.bg/</a></p>
+</li>
+<li><p>Olcso VPS: <a target="_blank" rel="noopener" href="https://www.olcso-vps.hu/">https://www.olcso-vps.hu/</a></p>
+</li>
+<li><p>HQServ: <a target="_blank" rel="noopener" href="https://www.hqserv.co.il/">https://www.hqserv.co.il/</a></p>
+</li>
+<li><p>CrownCloud: <a target="_blank" rel="noopener" href="https://crowncloud.net/">https://crowncloud.net/</a></p>
+</li>
+<li><p>Oblakoteka: <a target="_blank" rel="noopener" href="https://oblakoteka.ru/">https://oblakoteka.ru/</a></p>
+</li>
+<li><p>Creanova: <a target="_blank" rel="noopener" href="https://creanova.org/">https://creanova.org/</a></p>
+</li>
+<li><p>ServerHub: <a target="_blank" rel="noopener" href="https://www.serverhub.com/">https://www.serverhub.com/</a></p>
+</li>
+<li><p>BitWeb: <a target="_blank" rel="noopener" href="https://bitweb.ru/">https://bitweb.ru/</a></p>
+</li>
+<li><p>SolarVPS: <a target="_blank" rel="noopener" href="https://solarvps.com/">https://solarvps.com/</a></p>
+</li>
+<li><p>Kamatera: <a target="_blank" rel="noopener" href="https://www.kamatera.com/express/co">https://www.kamatera.com/express/co</a></p>
+</li>
+<li><p>NodesDirect: <a target="_blank" rel="noopener" href="http://nodesdirect.com/">http://nodesdirect.com/</a></p>
+</li>
+<li><p>VietServer: <a target="_blank" rel="noopener" href="https://vietserver.vn/">https://vietserver.vn/</a></p>
+</li>
+<li><p>Simcentric: <a target="_blank" rel="noopener" href="https://www.simcentric.com/en/">https://www.simcentric.com/en/</a></p>
+</li>
+<li><p>Servers.com: <a target="_blank" rel="noopener" href="https://www.servers.com/">https://www.servers.com/</a></p>
+</li>
+<li><p>MiroHost: <a target="_blank" rel="noopener" href="https://mirohost.net/en/">https://mirohost.net/en/</a></p>
+</li>
+<li><p>JustHost: <a target="_blank" rel="noopener" href="https://justhost.ru/">https://justhost.ru/</a></p>
+</li>
+<li><p>Harmony Hosting: <a target="_blank" rel="noopener" href="https://harmony.hosting/">https://harmony.hosting/</a></p>
+</li>
+<li><p>i3D.net: <a target="_blank" rel="noopener" href="https://www.i3d.net/">https://www.i3d.net/</a></p>
+<p>➖➖➖➖➖➖➖➖➖➖➖➖ 请注意 这个列表由 spoofer.network 的工作人员提供 我不保证其是否可用 请自行甄别 希望对你有帮助 请谨慎购买 ai生成的</p>
+<ol>
+<li><p>We are service find who has providers IPHM enabled spoofing and scanning from report. Sincerely we have best service, a weekly update and now we have discovered total ( 134 ) so ( 59 ) websites that allow spoof and ( 75 ) has stopped spoofing.</p>
+</li>
+<li><p>Deinserverhos.de - maybe suspend<br>netinternet.com.tr<br>bursabil.com.tr<br>harmony.hosting<br>vshield.pro ca location.</p>
+<p><a target="_blank" rel="noopener" href="https://www.heymman.com/">https://www.heymman.com/</a><br><a target="_blank" rel="noopener" href="https://vietserver.vn/">https://vietserver.vn/</a><br>Vietserver might be reselling <a target="_blank" rel="noopener" href="https://www.bkns.vn/">https://www.bkns.vn/</a><br>not verified</p>
+<p>Spoofed but dont take much servers you can get banned, Limited +120k pps:<br><a target="_blank" rel="noopener" href="https://njal.la/">https://njal.la</a><br>Very limited +90k pps :<br><a target="_blank" rel="noopener" href="https://cloudcore.vn/cloud-vps/">https://cloudcore.vn/cloud-vps/</a></p>
+<p>Ecatel - <a target="_blank" rel="noopener" href="http://ecatel.info/">http://ecatel.info/</a><br>Netrouting - <a target="_blank" rel="noopener" href="http://netrouting.com/">http://netrouting.com/</a><br>Limehost - <a target="_blank" rel="noopener" href="http://limehost.ro/">http://limehost.ro/</a><br>Goweb - <a target="_blank" rel="noopener" href="http://goweb.de/">http://goweb.de/</a><br>UK2 - <a target="_blank" rel="noopener" href="http://uk2.net/">http://uk2.net/</a><br>Quadranet - <a target="_blank" rel="noopener" href="http://quadranet.com/">http://quadranet.com/</a><br>MAXIDED - <a target="_blank" rel="noopener" href="https://maxided.com/">https://maxided.com/</a><br>DataShack - <a target="_blank" rel="noopener" href="https://www.datashack.net/">https://www.datashack.net/</a><br>NovaLayer - <a target="_blank" rel="noopener" href="http://www.novalayer.com/ukraine-servers-novalayer.html">http://www.novalayer.com/ukraine-servers-novalayer.html</a><br>BeamServers - <a target="_blank" rel="noopener" href="http://www.beamservers.com/netherlands-servers.php">http://www.beamservers.com/netherlands-servers.php</a><br>AliBabaHost - <a target="_blank" rel="noopener" href="http://www.alibabahost.com/netherland-of...rvers.html">http://www.alibabahost.com/netherland-of...rvers.html</a><br>Codero - <a target="_blank" rel="noopener" href="http://www.codero.com/">http://www.codero.com/</a><br>1000mbps - <a target="_blank" rel="noopener" href="http://www.1000mbps.com/servers">http://www.1000mbps.com/servers</a><br>Server4You - <a target="_blank" rel="noopener" href="http://www.server4you.com/">http://www.server4you.com/</a><br>Ubiquityhosting - <a target="_blank" rel="noopener" href="https://www.ubiquityhosting.com/managed-servers">https://www.ubiquityhosting.com/managed-servers</a><br>ScrapeBoxHosting - <a target="_blank" rel="noopener" href="http://scrapeboxhosting.com/">http://scrapeboxhosting.com/</a><br>PrivateLayer - <a target="_blank" rel="noopener" href="https://www.privatelayer.com/">https://www.privatelayer.com/</a><br>Offshoregb - <a target="_blank" rel="noopener" href="https://offshoregb.in/">https://offshoregb.in/</a><br>DreamHost - <a target="_blank" rel="noopener" href="http://www.dreamhost.com/dedicated/">http://www.dreamhost.com/dedicated/</a><br>HostingZoom - <a target="_blank" rel="noopener" href="http://www.hostingzoom.com/dedicated-server.php">http://www.hostingzoom.com/dedicated-server.php</a><br>DattaTec - <a target="_blank" rel="noopener" href="http://dattatec.com/es-int/">http://dattatec.com/es-int/</a><br>1and1 - <a target="_blank" rel="noopener" href="http://www.1and1.com/">http://www.1and1.com/</a><br>HostDime - <a target="_blank" rel="noopener" href="http://www.hostdime.com/managed-dedicated-servers/">http://www.hostdime.com/managed-dedicated-servers/</a><br>JaguarPC - <a target="_blank" rel="noopener" href="http://www.jaguarpc.com/">http://www.jaguarpc.com</a></p>
+</li>
+</ol>
+</li>
+</ol>
+
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>John Doe</span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>Permalink:</span>
+                        <span><a href="https://caoheike.github.io/2024/06/03/%E5%8F%AF%E4%BC%AA%E9%80%A0%E7%9A%84%E6%B8%A0%E9%81%93/">https://caoheike.github.io/2024/06/03/%E5%8F%AF%E4%BC%AA%E9%80%A0%E7%9A%84%E6%B8%A0%E9%81%93/</a></span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>License:</span>
+                        <span>Copyright (c) 2019 <a target="_blank" rel="noopener" href="http://creativecommons.org/licenses/by-nc/4.0/">CC-BY-NC-4.0</a> LICENSE</span>
+                    </p>
+                
+                
+                     <p class="copyright-item">
+                         <span>Slogan:</span>
+                         <span>Do you believe in <strong>DESTINY</strong>?</span>
+                     </p>
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+                <a class="prev" rel="prev" href="/2024/06/03/%E5%85%B3%E4%BA%8Ecc%E8%84%9A%E6%9C%AC%E4%BB%A5%E5%8F%8A%E4%BB%A3%E7%90%86%E7%9A%84%E4%B8%80%E4%BA%9B%E5%88%86%E4%BA%AB/">关于cc脚本以及代理的一些分享</a>
+            
+            
+            <a class="next" rel="next" href="/2024/06/03/%E5%90%90%E5%8F%B8%E8%B5%84%E6%BA%90/">吐司资源</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+            </div>
+            <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© John Doe | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+</body>
+
+</html>
